@@ -1,23 +1,47 @@
 var playerName = window.prompt("What is your robots's name?");
-// Note the lack of quotation marks around playerName
-console.log(playerName);
+var playerHealth = 100;
+var playerAttack = 10;
 
-console.log("This logs a string, good for leaving yourself a mesasge");
+console.log(playerName, playerAttack, playerHealth);
 
-// this will do math and log 20
-console.log(10 + 10);
+var enemyName = "Roberto";
+var enemyHealth = 50;
+var enemyAttack = 12;
 
-// this will concatenate
-console.log("Our robot name is " + playerName);
+var fight = function() {
+    window.alert("Welcome to Robot Gladiators!");
 
-function fight() {
-    window.alert("The fight has begun!");
-}   
+    // Subtract playerAttack from enemyHealth and use reslut to update the the value of enemyHealth
+    enemyHealth = enemyHealth - playerAttack;
 
-// fight();
+    // Log a resulting message to the console so we know that it worked.
+    console.log(
+        playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+        );
 
-var stringDataType = "This is a string, which is a fancy way to say text";
-var numberIntergerDataType = 10;
-var numberFloatDataType = 10.4;
-var booleanDataType = true;
+        if (enemyHealth <= 0) {
+            window.alert(enemyName + " has died!");
+        }
 
+        else {
+            window.alert (enemyName + " still has " + enemyHealth + " health left.");
+        }
+
+    // Subtract enemyAttack fromm playerHealth  and use result to update value of playerHealth
+    playerHealth = playerHealth - enemyAttack;
+
+    // Log resulting message to the console
+    console.log(
+        enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+    );
+
+    if (playerHealth <= 0) {
+        window.alert(playerName + " has died!");
+      }
+
+    else {
+        window.alert(playerName + " still has " + playerHealth + " health left.");
+    }
+};
+
+fight();
